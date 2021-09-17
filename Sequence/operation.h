@@ -1,6 +1,7 @@
 #pragma once
 #include <stdio.h>
-#include "assert.h" 
+#include <stdlib.h>
+#include <assert.h> 
 
 #define OK 1
 #define ERROR 0
@@ -11,7 +12,7 @@
 typedef int ElemType;       /* ElemType类型*/
 typedef struct
 {
-	ElemType data[MAXSIZE]; /* 存储数据元素 */
+	ElemType* data;			/* 存储数据元素 */
 	int length;             /* 线性表当前长度 */
 }SqList;
 
@@ -33,10 +34,16 @@ Status ListTraverse(SqList L)
 	return OK;
 }
 
+/* 返回L中数据元素个数 */
+int ListLength(SqList L)
+{
+	return L.length;
+}
 
 /* 初始化顺序线性表 */
 Status InitList(SqList* L)
 {
+	L->data = (ElemType*)malloc(sizeof(int) * MAXSIZE);
 	L->length = 0;
 	return OK;
 }
@@ -76,4 +83,56 @@ Status ListDelete(SqList* L, int i, ElemType* e)
 	}
 	L->length--;
 	return OK;
+}
+
+/* 查找某元素第一次出现的位置，若这样的数据元素不存在，则返回值为0 */
+int LocateElem(SqList L, ElemType e)
+{
+	int i;
+	if (L.length == 0)
+		return 0;
+	for (i = 0; i < L.length; i++)
+	{
+		if (L.data[i] == e)
+			return i + 1;		/* 返回位置 */
+	}
+	return 0;
+}
+
+/* 合并La与Lb到Lc */
+Status Merge(SqList* La, SqList* Lb, SqList* Lc)
+{
+	int i, j;
+	Lc->data = (ElemType*)malloc(sizeof(int) * MAXSIZE * 2);
+	assert(Lc->data);	/* 清除错误对NULL的引用 */
+	for (i = 0; i < La->length; i++, Lc->length++)
+		Lc->data[i] = La->data[i];
+	for (j = 0; j < Lb->length; i++, j++, Lc->length++)
+		Lc->data[i] = Lb->data[j];
+	return OK;
+}
+
+/* 用e返回L中第i个数据元素的值,注意i是指位置 */
+Status GetElem(SqList L, int i, ElemType* e)
+{
+	if (L.length == 0 || i<1 || i>L.length)
+		return ERROR;
+	*e = L.data[i - 1];
+
+	return OK;
+}
+
+/*将所有的在线性表Lb中但不在La中的数据元素插入到La中*/
+void union_Sq(SqList* La, SqList Lb)
+{
+	int La_len, Lb_len, i;
+	ElemType e;                         /*声明与La和Lb相同的数据元素e*/
+	La_len = ListLength(*La);           /*求线性表的长度 */
+	Lb_len = ListLength(Lb);
+	for (i = 1; i <= Lb_len; i++)
+	{
+		GetElem(Lb, i, &e);              /*取Lb中第i个数据元素赋给e*/
+		if (!LocateElem(*La, e))         /*La中不存在和e相同数据元素*/
+			ListInsert(La, ++La_len, e); /*插入*/
+	}
 }
