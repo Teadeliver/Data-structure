@@ -6,7 +6,8 @@ int main()
 	int flag = InitList(&La);
 	assert(flag);
 	printf("顺序表La初始化为空表，其长度为%d\n", La.length);
-
+	FreeList(&La);
+	InitList(&La);
 	for (int i = 1; i <= 5; i++)//顺序表头部依次插入1~5
 	{
 		ListInsert(&La, 1, i);

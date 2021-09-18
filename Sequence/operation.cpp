@@ -33,6 +33,16 @@ Status InitList(SqList* L)
 	return OK;
 }
 
+/* 销毁线性表 */
+Status FreeList(SqList* L)
+{
+	free(L->data);
+	L->data = NULL;
+	L->length = 0;
+	L->listsize = 0;
+	return OK;
+}
+
 /* 操作结果：在L中第i个位置之前插入新的数据元素e，L的长度加1 */
 Status ListInsert(SqList* L, int i, ET e)
 {

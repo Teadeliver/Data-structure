@@ -34,6 +34,8 @@ int ListLength(SqList L);
 /* 初始化顺序线性表 */
 Status InitList(SqList* L);
 
+Status FreeList(SqList* L);
+
 /* 操作结果：在L中第i个位置之前插入新的数据元素e，L的长度加1 */
 Status ListInsert(SqList* L, int i, ET e);
 
