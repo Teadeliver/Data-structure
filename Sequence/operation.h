@@ -1,7 +1,7 @@
 #pragma once
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h> 
+#include <assert.h>
 
 #define OK 11
 #define ERROR -11
@@ -9,7 +9,6 @@
 #define FALSE 0
 #define List_Init_Size 10         /* 存储空间初始分配量 */
 #define ListIncrement 10		/* 线性表储存空间的分配增量 */
-
 
 typedef int Elemtype;
 typedef Elemtype ET;       /* ElemType类型*/
@@ -33,6 +32,8 @@ int ListLength(SqList L);
 
 /* 初始化顺序线性表 */
 Status InitList(SqList* L);
+
+Status FreeList(SqList* L);
 
 /* 操作结果：在L中第i个位置之前插入新的数据元素e，L的长度加1 */
 Status ListInsert(SqList* L, int i, ET e);
