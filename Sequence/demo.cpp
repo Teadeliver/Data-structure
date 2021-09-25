@@ -6,7 +6,8 @@ int main()
 	int flag = InitList(&La);
 	assert(flag);
 	printf("顺序表La初始化为空表，其长度为%d\n", La.length);
-
+	FreeList(&La);
+	InitList(&La);
 	for (int i = 1; i <= 5; i++)//顺序表头部依次插入1~5
 	{
 		ListInsert(&La, 1, i);
@@ -55,7 +56,7 @@ int main()
 	ListTraverse(La);
 	printf("Lb顺序表头部依次插入10-4，顺序表Lb长度为%d\n", Lb.length);
 	ListTraverse(Lb);
-	printf("尝试归并La与Lb为Lc，结果为：\n");
+	printf("尝试归并La与Lb为Lc，结果d为：\n");
 	Merge(&La, &Lb, &Lc);
 	ListTraverse(Lc);
 
