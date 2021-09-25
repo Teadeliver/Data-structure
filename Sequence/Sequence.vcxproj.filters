@@ -18,9 +18,18 @@
     <ClCompile Include="demo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Sequence.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Linked.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="operation.h">
+    <ClInclude Include="Sequence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Linked.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

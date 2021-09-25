@@ -1,24 +1,6 @@
-#pragma once
-#include <stdio.h>
-#include <stdlib.h>
-#include <assert.h> 
+#include "Sequence.h"
 
-#define OK 1
-#define ERROR 0
-#define TRUE 1
-#define FALSE 0
-
-#define MAXSIZE 20          /* 存储空间初始分配量 */
-typedef int ElemType;       /* ElemType类型*/
-typedef struct
-{
-	ElemType* data;			/* 存储数据元素 */
-	int length;             /* 线性表当前长度 */
-}SqList;
-
-typedef int Status;         /* 标记状态类型*/
-
-Status visit(ElemType c)
+Status visit(ET c)
 {
 	printf("%d ", c);
 	return OK;
@@ -43,16 +25,29 @@ int ListLength(SqList L)
 /* 初始化顺序线性表 */
 Status InitList(SqList* L)
 {
-	L->data = (ElemType*)malloc(sizeof(int) * MAXSIZE);
+	L->data = (ET*)malloc(sizeof(ET) * List_Init_Size);
+	if (!L->data)			/* 分配内存失败 */
+		exit(ERROR);
+	L->length = 0;			/* 空表长度为0 */
+	L->listsize = List_Init_Size;			/* 初始化储存容量 */
+	return OK;
+}
+
+/* 销毁线性表 */
+Status FreeList(SqList* L)
+{
+	free(L->data);
+	L->data = NULL;
 	L->length = 0;
+	L->listsize = 0;
 	return OK;
 }
 
 /* 操作结果：在L中第i个位置之前插入新的数据元素e，L的长度加1 */
-Status ListInsert(SqList* L, int i, ElemType e)
+Status ListInsert(SqList* L, int i, ET e)
 {
 	int k;
-	if (L->length == MAXSIZE)  /* 顺序线性表已经满 */
+	if (L->length == List_Init_Size)  /* 顺序线性表已经满 */
 		return ERROR;
 	if (i<1 || i>L->length + 1)/* 当i比第一位置小或者比最后一位置后一位置还要大时 */
 		return ERROR;
@@ -69,7 +64,7 @@ Status ListInsert(SqList* L, int i, ElemType e)
 }
 
 /* 操作结果：删除L的第i个数据元素，并用e返回其值，L的长度减1 */
-Status ListDelete(SqList* L, int i, ElemType* e)
+Status ListDelete(SqList* L, int i, ET* e)
 {
 	if (L->length == 0)               /* 线性表为空 */
 		return ERROR;
@@ -78,7 +73,7 @@ Status ListDelete(SqList* L, int i, ElemType* e)
 	*e = L->data[i - 1];
 	if (i < L->length)                /* 如果删除不是最后位置 */
 	{
-		for (int k = i; k < L->length; k++)/* 将删除位置后继元素前移 */
+		for (int k = i; k < L->length; k++)		/* 将删除位置后继元素前移 */
 			L->data[k - 1] = L->data[k];
 	}
 	L->length--;
@@ -86,7 +81,7 @@ Status ListDelete(SqList* L, int i, ElemType* e)
 }
 
 /* 查找某元素第一次出现的位置，若这样的数据元素不存在，则返回值为0 */
-int LocateElem(SqList L, ElemType e)
+int LocateElem(SqList L, ET e)
 {
 	int i;
 	if (L.length == 0)
@@ -103,7 +98,7 @@ int LocateElem(SqList L, ElemType e)
 Status Merge(SqList* La, SqList* Lb, SqList* Lc)
 {
 	int i, j;
-	Lc->data = (ElemType*)malloc(sizeof(int) * MAXSIZE * 2);
+	Lc->data = (ET*)malloc(sizeof(int) * List_Init_Size * 2);
 	assert(Lc->data);	/* 清除错误对NULL的引用 */
 	for (i = 0; i < La->length; i++, Lc->length++)
 		Lc->data[i] = La->data[i];
@@ -113,7 +108,7 @@ Status Merge(SqList* La, SqList* Lb, SqList* Lc)
 }
 
 /* 用e返回L中第i个数据元素的值,注意i是指位置 */
-Status GetElem(SqList L, int i, ElemType* e)
+Status GetElem(SqList L, int i, ET* e)
 {
 	if (L.length == 0 || i<1 || i>L.length)
 		return ERROR;
@@ -126,7 +121,7 @@ Status GetElem(SqList L, int i, ElemType* e)
 void union_Sq(SqList* La, SqList Lb)
 {
 	int La_len, Lb_len, i;
-	ElemType e;                         /*声明与La和Lb相同的数据元素e*/
+	ET e;                         /*声明与La和Lb相同的数据元素e*/
 	La_len = ListLength(*La);           /*求线性表的长度 */
 	Lb_len = ListLength(Lb);
 	for (i = 1; i <= Lb_len; i++)
