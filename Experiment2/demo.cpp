@@ -1,12 +1,12 @@
 #include "Linked.h"
 
-void TestLinked()
+void TestSequence()
 {
 
 }
 
 int main()
 {
-	TestLinked();
+	TestSequence();
 }
 
