@@ -11,6 +11,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-1 逆序数据建立链�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-2 链式表操作集", "2-2 链式表操作集\2-2 链式表操作集.vcxproj", "{3E4FB68B-38ED-4AC9-BFCA-B92C5F51EDB8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-3 链式表的按序号查找", "2-3 链式表的按序号查找\2-3 链式表的按序号查找.vcxproj", "{478422BB-7A67-4EF6-BA22-E74599592013}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-4 求链式表的表长", "2-4 求链式表的表长\2-4 求链式表的表长.vcxproj", "{EFB49985-0B1C-4781-AB5E-21F64E870E1B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-5 单链表逆转", "2-5 单链表逆转\2-5 单链表逆转.vcxproj", "{F527CF5B-0429-4C0E-B169-55725A0A5B35}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-6 两个有序链表序列的合并", "2-6 两个有序链表序列的合并\2-6 两个有序链表序列的合并.vcxproj", "{EDAB9BDB-9A1F-4C55-A85D-B84778EC4F0E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2-7 单链表 - 20. 单值化(去重)", "2-7 单链表 - 20. 单值化(去重)\2-7 单链表 - 20. 单值化(去重).vcxproj", "{67D68096-22EC-46EF-AEE3-4EAAF6DD9111}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +61,46 @@ Global
 		{3E4FB68B-38ED-4AC9-BFCA-B92C5F51EDB8}.Release|x64.Build.0 = Release|x64
 		{3E4FB68B-38ED-4AC9-BFCA-B92C5F51EDB8}.Release|x86.ActiveCfg = Release|Win32
 		{3E4FB68B-38ED-4AC9-BFCA-B92C5F51EDB8}.Release|x86.Build.0 = Release|Win32
+		{478422BB-7A67-4EF6-BA22-E74599592013}.Debug|x64.ActiveCfg = Debug|x64
+		{478422BB-7A67-4EF6-BA22-E74599592013}.Debug|x64.Build.0 = Debug|x64
+		{478422BB-7A67-4EF6-BA22-E74599592013}.Debug|x86.ActiveCfg = Debug|Win32
+		{478422BB-7A67-4EF6-BA22-E74599592013}.Debug|x86.Build.0 = Debug|Win32
+		{478422BB-7A67-4EF6-BA22-E74599592013}.Release|x64.ActiveCfg = Release|x64
+		{478422BB-7A67-4EF6-BA22-E74599592013}.Release|x64.Build.0 = Release|x64
+		{478422BB-7A67-4EF6-BA22-E74599592013}.Release|x86.ActiveCfg = Release|Win32
+		{478422BB-7A67-4EF6-BA22-E74599592013}.Release|x86.Build.0 = Release|Win32
+		{EFB49985-0B1C-4781-AB5E-21F64E870E1B}.Debug|x64.ActiveCfg = Debug|x64
+		{EFB49985-0B1C-4781-AB5E-21F64E870E1B}.Debug|x64.Build.0 = Debug|x64
+		{EFB49985-0B1C-4781-AB5E-21F64E870E1B}.Debug|x86.ActiveCfg = Debug|Win32
+		{EFB49985-0B1C-4781-AB5E-21F64E870E1B}.Debug|x86.Build.0 = Debug|Win32
+		{EFB49985-0B1C-4781-AB5E-21F64E870E1B}.Release|x64.ActiveCfg = Release|x64
+		{EFB49985-0B1C-4781-AB5E-21F64E870E1B}.Release|x64.Build.0 = Release|x64
+		{EFB49985-0B1C-4781-AB5E-21F64E870E1B}.Release|x86.ActiveCfg = Release|Win32
+		{EFB49985-0B1C-4781-AB5E-21F64E870E1B}.Release|x86.Build.0 = Release|Win32
+		{F527CF5B-0429-4C0E-B169-55725A0A5B35}.Debug|x64.ActiveCfg = Debug|x64
+		{F527CF5B-0429-4C0E-B169-55725A0A5B35}.Debug|x64.Build.0 = Debug|x64
+		{F527CF5B-0429-4C0E-B169-55725A0A5B35}.Debug|x86.ActiveCfg = Debug|Win32
+		{F527CF5B-0429-4C0E-B169-55725A0A5B35}.Debug|x86.Build.0 = Debug|Win32
+		{F527CF5B-0429-4C0E-B169-55725A0A5B35}.Release|x64.ActiveCfg = Release|x64
+		{F527CF5B-0429-4C0E-B169-55725A0A5B35}.Release|x64.Build.0 = Release|x64
+		{F527CF5B-0429-4C0E-B169-55725A0A5B35}.Release|x86.ActiveCfg = Release|Win32
+		{F527CF5B-0429-4C0E-B169-55725A0A5B35}.Release|x86.Build.0 = Release|Win32
+		{EDAB9BDB-9A1F-4C55-A85D-B84778EC4F0E}.Debug|x64.ActiveCfg = Debug|x64
+		{EDAB9BDB-9A1F-4C55-A85D-B84778EC4F0E}.Debug|x64.Build.0 = Debug|x64
+		{EDAB9BDB-9A1F-4C55-A85D-B84778EC4F0E}.Debug|x86.ActiveCfg = Debug|Win32
+		{EDAB9BDB-9A1F-4C55-A85D-B84778EC4F0E}.Debug|x86.Build.0 = Debug|Win32
+		{EDAB9BDB-9A1F-4C55-A85D-B84778EC4F0E}.Release|x64.ActiveCfg = Release|x64
+		{EDAB9BDB-9A1F-4C55-A85D-B84778EC4F0E}.Release|x64.Build.0 = Release|x64
+		{EDAB9BDB-9A1F-4C55-A85D-B84778EC4F0E}.Release|x86.ActiveCfg = Release|Win32
+		{EDAB9BDB-9A1F-4C55-A85D-B84778EC4F0E}.Release|x86.Build.0 = Release|Win32
+		{67D68096-22EC-46EF-AEE3-4EAAF6DD9111}.Debug|x64.ActiveCfg = Debug|x64
+		{67D68096-22EC-46EF-AEE3-4EAAF6DD9111}.Debug|x64.Build.0 = Debug|x64
+		{67D68096-22EC-46EF-AEE3-4EAAF6DD9111}.Debug|x86.ActiveCfg = Debug|Win32
+		{67D68096-22EC-46EF-AEE3-4EAAF6DD9111}.Debug|x86.Build.0 = Debug|Win32
+		{67D68096-22EC-46EF-AEE3-4EAAF6DD9111}.Release|x64.ActiveCfg = Release|x64
+		{67D68096-22EC-46EF-AEE3-4EAAF6DD9111}.Release|x64.Build.0 = Release|x64
+		{67D68096-22EC-46EF-AEE3-4EAAF6DD9111}.Release|x86.ActiveCfg = Release|Win32
+		{67D68096-22EC-46EF-AEE3-4EAAF6DD9111}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
