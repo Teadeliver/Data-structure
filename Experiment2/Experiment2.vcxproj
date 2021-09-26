@@ -21,10 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c175f721-4efd-47cc-97fa-136565f225c8}</ProjectGuid>
-    <RootNamespace>Sequence</RootNamespace>
+    <ProjectGuid>{7a8bdf3d-ced8-45ab-b65d-dbcaea5cc39d}</ProjectGuid>
+    <RootNamespace>Experiment2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Sequence</ProjectName>
+    <ProjectName>Experiment2 单链表基本操作</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,11 +140,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="demo.cpp" />
-    <ClCompile Include="Sequence.cpp" />
+    <ClInclude Include="..\Sequence\Linked.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sequence.h" />
+    <ClCompile Include="..\Sequence\demo.cpp" />
+    <ClCompile Include="..\Sequence\Linked.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
