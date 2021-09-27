@@ -4,8 +4,8 @@
 typedef int ElementType;
 typedef struct Node* PtrToNode;
 struct Node {
-	ElementType Data;
-	PtrToNode   Next;
+	ElementType data;
+	PtrToNode   next;
 };
 typedef PtrToNode List;
 
@@ -29,25 +29,25 @@ int main()
 /* 你的代码将被嵌在这里 */
 List Merge(List L1, List L2) {
 	List p1 = L1, p2 = L2;
-	L1 = L1->Next; L2 = L2->Next;
+	L1 = L1->next; L2 = L2->next;
 	List res = (List)malloc(sizeof(List));
 	List tmp = res;
 	while (L1 != NULL && L2 != NULL) {
-		if ((L1->Data) < (L2->Data)) {
-			tmp->Next = L1;
-		L1 = L1->Next;
-			tmp = tmp->Next;
+		if ((L1->data) < (L2->data)) {
+			tmp->next = L1;
+		L1 = L1->next;
+			tmp = tmp->next;
 	}
 		else {
-			tmp->Next = L2;
-		L2 = L2->Next;
-			tmp = tmp->Next;
+			tmp->next = L2;
+		L2 = L2->next;
+			tmp = tmp->next;
 	}
 	}
-	if (L1 != NULL) tmp->Next = L1;
-	if (L2 != NULL) tmp->Next = L2;
-	p1->Next = NULL;
-	p2->Next = NULL;
+	if (L1 != NULL) tmp->next = L1;
+	if (L2 != NULL) tmp->next = L2;
+	p1->next = NULL;
+	p2->next = NULL;
 	return res;
 }
 List Read() {
@@ -55,7 +55,7 @@ List Read() {
 	scanf("%d", &num);
 
 	List L = (List)malloc(sizeof(Node));
-	L->Next = NULL;
+	L->next = NULL;
 
 
 	List tail;
@@ -65,23 +65,23 @@ List Read() {
 		int data;
 		scanf("%d", &data);
 		List pNode = (List)malloc(sizeof(Node));
-		pNode->Data = data;
-		tail->Next = pNode;
+		pNode->data = data;
+		tail->next = pNode;
 		tail = pNode;
 				}
-	tail->Next = NULL;
+	tail->next = NULL;
 	return L;
 			}
 
 void Print(List L) {
-	List pNode = L->Next;
+	List pNode = L->next;
 	if (pNode == NULL) {
 		printf("NULL\n");
 		return;
 		}
 	while (pNode != NULL) {
-		printf("%d  ", pNode->Data);
-		pNode = pNode->Next;
+		printf("%d  ", pNode->data);
+		pNode = pNode->next;
 	}
 	printf("\n");
 }

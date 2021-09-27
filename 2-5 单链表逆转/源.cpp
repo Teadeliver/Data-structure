@@ -4,8 +4,8 @@
 typedef int ElementType;
 typedef struct Node* PtrToNode;
 struct Node {
-	ElementType Data;
-	PtrToNode   Next;
+	ElementType data;
+	PtrToNode   next;
 };
 typedef PtrToNode List;
 
@@ -29,11 +29,11 @@ List Reverse(List L) {
 	List prev = NULL;
 	List curr = L;
 	List next;
-	if (L == NULL || L->Next == NULL)
+	if (L == NULL || L->next == NULL)
 		return L;
 	while (curr != NULL) {
-		next = curr->Next;
-		curr->Next = prev;
+		next = curr->next;
+		curr->next = prev;
 		prev = curr;
 		curr = next;
 	}

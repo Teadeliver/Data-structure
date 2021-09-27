@@ -29,6 +29,7 @@ int main()
 		L = Insert(L, X, L);
 		if (L == ERROR) printf("Wrong Answer\n");
 	}
+	for (P = L; P; P = P->Next) printf("%d ", P->Data);
 	scanf("%d", &N);
 	while (N--) {
 		scanf("%d", &X);
@@ -56,3 +57,62 @@ int main()
 }
 
 /* 你的代码将被嵌在这里 */
+Position Find(List L, ElementType X)
+{
+	List head = L;
+	while (head)
+	{
+		if (head->Data == X)
+			return head;
+		head = head->Next;
+	}
+	return ERROR;
+}
+List Insert(List L, ElementType X, Position P)
+{
+	List head = L, temp;
+	if (head == P)
+	{
+		temp = (List)malloc(sizeof(struct LNode));
+		temp->Data = X;
+		temp->Next = P;
+		return temp;
+	}
+	while (head)
+	{
+		if (head->Next == P)
+		{
+			temp = (List)malloc(sizeof(struct LNode));
+			if (temp)
+			{
+				temp->Next = P;
+			}
+			head->Next = temp;
+			temp->Data = X;
+			return L;
+		}
+		head = head->Next;
+	}
+	printf("Wrong Position for Insertion\n");
+	return ERROR;
+}
+List Delete(List L, Position P)
+{
+	List head = L;
+	if (head == P)
+	{
+		head = head->Next;
+		return head;
+	}
+	while (head)
+	{
+		if (head->Next == P)
+		{
+			head->Next = head->Next->Next;
+			return L;
+		}
+		head = head->Next;
+	}
+	printf("Wrong Position for Deletion\n");
+	return ERROR;
+}
