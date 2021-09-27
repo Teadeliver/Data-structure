@@ -35,14 +35,14 @@ List Merge(List L1, List L2) {
 	while (L1 != NULL && L2 != NULL) {
 		if ((L1->Data) < (L2->Data)) {
 			tmp->Next = L1;
-			L1 = L1->Next;
+		L1 = L1->Next;
 			tmp = tmp->Next;
-		}
+	}
 		else {
 			tmp->Next = L2;
-			L2 = L2->Next;
+		L2 = L2->Next;
 			tmp = tmp->Next;
-		}
+	}
 	}
 	if (L1 != NULL) tmp->Next = L1;
 	if (L2 != NULL) tmp->Next = L2;
@@ -61,24 +61,24 @@ List Read() {
 	List tail;
 	tail = L;
 	for (int i = 0; i < num; ++i)
-	{
+				{
 		int data;
 		scanf("%d", &data);
 		List pNode = (List)malloc(sizeof(Node));
 		pNode->Data = data;
 		tail->Next = pNode;
 		tail = pNode;
-	}
+				}
 	tail->Next = NULL;
 	return L;
-}
+			}
 
 void Print(List L) {
 	List pNode = L->Next;
 	if (pNode == NULL) {
 		printf("NULL\n");
 		return;
-	}
+		}
 	while (pNode != NULL) {
 		printf("%d  ", pNode->Data);
 		pNode = pNode->Next;
