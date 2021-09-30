@@ -1,37 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef int ElementType;
-typedef struct Node* PtrToNode;
-struct Node {
-	ElementType data;
-	PtrToNode   next;
-};
-typedef struct Node LLIST;
-
-void LListUnique(LLIST* list);
-
-int main()
-{
-
-}
 void LListUnique(LLIST* list)
 {
-	LLIST* head = list, * save = list;
-	LLIST temp;
-	while (list)
-	{
-		temp.data = list->data; 
-		while (head->next)
-		{
-			if (head->next->data == temp.data)
+	LNODE* cur = list->head->next;
+	LNODE* pre = NULL;
+	LNODE* next = NULL;
+	while (NULL != cur) {
+		pre = cur;
+		next = cur->next;
+		while (NULL != next) {
+			if (LElementEq(&cur->data, &next->data))
 			{
-				head->next = head->next->next;
+				pre->next = next->next;
+				list->length--;
 			}
-			head = head->next;
+			else
+			{
+				pre = next;
+			}
+			next = next->next;
 		}
-		list = list->next;
+		cur = cur->next;
 	}
-	printf("结构体大小为 %d", sizeof(LLIST));
-	printf("%f", *(double*)(list + sizeof(LLIST*)));
 }
