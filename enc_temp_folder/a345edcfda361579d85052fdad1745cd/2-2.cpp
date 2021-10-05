@@ -119,8 +119,6 @@ List Delete(List L, Position P)
 	Pre->Next = P->Next;
 	return L;
 }
-
-//½â·¨¶þ
 //Position Find(List L, ElementType X)
 //{
 //	List head = L;
