@@ -26,9 +26,9 @@ int main()
 
 /* 你的代码将被嵌在这里 */
 List Reverse(List L) {
-	List prev = NULL;
-	List curr = L;
-	List next;
+	List prev = NULL;//指向已经逆转的链表的第一个节点
+	List curr = L;//工作指针，指向当前需要逆转的节点
+	List next;//当前需要逆转的节点的下一个
 	if (L == NULL || L->next == NULL)
 		return L;
 	while (curr != NULL) {
