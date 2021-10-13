@@ -66,9 +66,9 @@ int main()
 			break;
 		}
 		case 0:
-		{
+{
 			if (Pop(s, &e))
-			{
+	{
 				printf("%d\n", e);
 			}
 			break;
