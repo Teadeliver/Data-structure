@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define true 1
+#define false 0
+typedef int Status;
+
 #define ERROR 1e8
 typedef int ElementType;
 typedef enum { push, pop, end } Operation;
-typedef enum { false, true } bool;
 typedef int Position;
 struct SNode {
 	ElementType* Data;
@@ -14,7 +17,7 @@ struct SNode {
 typedef struct SNode* Stack;
 
 Stack CreateStack(int MaxSize);
-bool Push(Stack S, ElementType X, int Tag);
+Status Push(Stack S, ElementType X, int Tag);
 ElementType Pop(Stack S, int Tag);
 
 Operation GetOp();  /* details omitted */
@@ -59,7 +62,7 @@ Stack CreateStack(int MaxSize)
 	newstack->MaxSize = MaxSize;
 	return newstack;
 }
-bool Push(Stack S, ElementType X, int Tag)
+Status Push(Stack S, ElementType X, int Tag)
 {
 	if (S->Top1 + 1 == S->Top2)	/* 栈已满，不能再push新元素了 */
 	{
